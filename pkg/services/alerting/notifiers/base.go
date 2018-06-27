@@ -13,6 +13,7 @@ type NotifierBase struct {
 	Id          int64
 	IsDeault    bool
 	UploadImage bool
+	FilterOK	bool
 }
 
 func NewNotifierBase(id int64, isDefault bool, name, notifierType string, model *simplejson.Json) NotifierBase {
@@ -28,6 +29,7 @@ func NewNotifierBase(id int64, isDefault bool, name, notifierType string, model 
 		IsDeault:    isDefault,
 		Type:        notifierType,
 		UploadImage: uploadImage,
+		FilterOK:	 filterOK
 	}
 }
 
