@@ -269,23 +269,20 @@ export class TableRenderer {
       const cellDetailURL = this.templateSrv.replace(column.style.detailURL, scopedVars, encodeURIComponent);
       const cellDetailTooltip = this.templateSrv.replace(column.style.detailTooltip, scopedVars);
 
-      if (column.style.detailReplaceText === '') {
-        columnHtml += `
+      columnHtml += `
           <span class="table-panel-column-lookup-detail"
           data-lookupURL="${cellDetailURL}"
           data-lookupValue="${value}"
           data-link-tooltip data-original-title="${cellDetailTooltip}"
-          data-placement="right" ${style}>
-          <b>${value}</b>
+          data-placement="right" ${textStyle}>`;
+
+      if (column.style.detailReplaceText && column.style.detailReplaceText !== '') {
+        columnHtml += `
+          <b>` + column.style.detailReplaceText + `</b>
           </span>`;
       } else {
         columnHtml += `
-          <span class="table-panel-column-lookup-detail"
-          data-lookupURL="${cellDetailURL}"
-          data-lookupValue="${value}"
-          data-link-tooltip data-original-title="${cellDetailTooltip}"
-          data-placement="right" ${style}>
-          <b>` + column.style.detailReplaceText + `</b>
+          <b>${value}</b>
           </span>`;
       }
     } else {
