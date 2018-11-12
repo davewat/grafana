@@ -269,14 +269,14 @@ export class TableRenderer {
       const cellDetailURL = this.templateSrv.replace(column.style.detailURL, scopedVars, encodeURIComponent);
       const cellDetailTooltip = this.templateSrv.replace(column.style.detailTooltip, scopedVars);
 
-      if (column.style.detailReplaceText === '') {
+      if (column.style.detailReplaceText && column.style.detailReplaceText !== '') {
         columnHtml += `
           <span class="table-panel-column-lookup-detail"
           data-lookupURL="${cellDetailURL}"
           data-lookupValue="${value}"
           data-link-tooltip data-original-title="${cellDetailTooltip}"
           data-placement="right" ${style}>
-          <b>${value}</b>
+          <b>` + column.style.detailReplaceText + `</b>
           </span>`;
       } else {
         columnHtml += `
@@ -285,7 +285,7 @@ export class TableRenderer {
           data-lookupValue="${value}"
           data-link-tooltip data-original-title="${cellDetailTooltip}"
           data-placement="right" ${style}>
-          <b>` + column.style.detailReplaceText + `</b>
+          <b>${value}</b>
           </span>`;
       }
     } else {
