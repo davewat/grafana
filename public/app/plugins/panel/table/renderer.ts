@@ -277,7 +277,7 @@ export class TableRenderer {
           data-lookupColor="${cellDetailColor}"
           data-lookupValue="${value}"
           data-link-tooltip data-original-title="${cellDetailTooltip}"
-          data-placement="right" ${textStyle}>`;
+          data-placement="right" ${style}>`;
 
       if (column.style.detailReplaceText && column.style.detailReplaceText !== '') {
         columnHtml += `
